@@ -1,8 +1,8 @@
-const transformLinks = (links: string[]) => {
+const formatLinks = (links: string[]) => {
   return links.map((link) => ({
     linkName: link,
     linkRoute: link.split(" ").join("-").toLowerCase(),
   }));
 };
 
-export { transformLinks };
+export { formatLinks };

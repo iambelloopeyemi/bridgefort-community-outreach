@@ -1,4 +1,4 @@
-import { transformLinks } from "@/utils/HelperFunctions";
+import { formatLinks } from "@/utils/HelperFunctions";
 import Link from "next/link";
 
 type NavLinksProps = {
@@ -7,11 +7,11 @@ type NavLinksProps = {
 
 const NavLinks = (props: NavLinksProps) => {
   const { links } = props;
-  const transformedLinks = transformLinks(links);
+  const formattedLinks = formatLinks(links);
 
   return (
     <ul>
-      {transformedLinks.map(({ linkName, linkRoute }, index) => (
+      {formattedLinks.map(({ linkName, linkRoute }, index) => (
         <li key={index}>
           <Link href={`/${linkRoute}`}>{linkName}</Link>
         </li>
