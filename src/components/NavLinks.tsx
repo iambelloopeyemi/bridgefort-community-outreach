@@ -1,18 +1,19 @@
-import NavLink from "./ui/NavLink";
+import { transformLinks } from "@/utils/HelperFunctions";
+import Link from "next/link";
 
 type NavLinksProps = {
-  menu: string[];
-  isHeader?: boolean;
+  links: string[];
 };
 
 const NavLinks = (props: NavLinksProps) => {
-  const { menu } = props;
+  const { links } = props;
+  const transformedLinks = transformLinks(links);
 
   return (
     <ul>
-      {menu.map((item, index) => (
+      {transformedLinks.map(({ linkName, linkRoute }, index) => (
         <li key={index}>
-          <NavLink>{item}</NavLink>
+          <Link href={`/${linkRoute}`}>{linkName}</Link>
         </li>
       ))}
     </ul>
